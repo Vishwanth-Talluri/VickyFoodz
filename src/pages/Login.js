@@ -47,21 +47,26 @@ export default function Login() {
     }
 
   return (
-    <div className='container w-50 mt-5 h-100vh' id="login">
+    <div id="login">
+        
+    <div className='container text-white w-50  h-100vh ' >
+        <div className='fs-2 fw-bold mb-3'>Login</div>
+        <hr className='thick-hr'/>
             <form onSubmit={handleSubmit}>
                 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" name='email' value={credentials.email} onChange={handleChange}/>
+                    <input type="email" class="form-control bg-light" id="exampleInputEmail1" name='email' value={credentials.email} onChange={handleChange}/>
                     
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1"  name='password' value={credentials.password} onChange={handleChange}/>
+                    <input type="password" class="form-control bg-light" id="exampleInputPassword1"  name='password' value={credentials.password} onChange={handleChange}/>
                 </div>
                 <button type="submit" class="btn btn-success mr-3">Submit</button>
-                <Link to='/signup' className='m-3 btn btn-outline-primary'>New User?</Link>
+                <Link to='/signup' className='m-3 btn btn-primary'>New User?</Link>
             </form>
+        </div>
         </div>
   )
 }

@@ -22,7 +22,7 @@ export default function MyOrder() {
                 throw new Error('Failed to fetch orders');
             }
             const data = await response.json();
-            setOrderData(Array(data.orderData) || []);
+            setOrderData(data.orderData ? [data.orderData] : []);
         } catch (error) {
             setError(error.message);
         } finally {
@@ -45,43 +45,41 @@ export default function MyOrder() {
     return (
         <div>
             <Navbar />
-            <div className='container'>
+            <div className='container' style={{minHeight:"80vh"}}>
                 <div className='row'>
                     {orderData.length > 0 ? (
                         orderData.map(order => (
-                            <div key={order._id}>
-                                {order.order_data.map((orderItem, index) => (
-                                    <div key={index}>
+                            order && order.order_data && order.order_data.map((orderItem, index) => (
+                                <div key={index}>
+                                    {orderItem[0] && orderItem[0].order_date && (
                                         <div className='m-auto mt-5'>
-                                            {orderItem[0].order_date && (
-                                                <div>
-                                                    Order Date: {orderItem[0].order_date}
-                                                    <hr />
-                                                </div>
-                                            )}
+                                            <div>
+                                                Order Date: {orderItem[0].order_date}
+                                                <hr />
+                                            </div>
                                         </div>
-                                        <div className='col-12 col-md-6 col-lg-3'>
-                                            {orderItem.slice(1).map((arrayData, idx) => (
-                                                <div key={idx} className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
-                                                    {/* <img src={arrayData.img} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} /> */}
-                                                    <div className="card-body">
-                                                        <h5 className="card-title">{arrayData.name}</h5>
-                                                        <div className='container w-100 p-0' style={{ height: "38px" }}>
-                                                            <span className='m-1'>{arrayData.qty}</span>
-                                                            <span className='m-1'>{arrayData.size}</span>
-                                                            <span className='m-1'>{orderItem[0].order_date}</span>
-                                                            <div className='d-inline ms-2 h-100 w-20 fs-5'>₹{arrayData.price}/-</div>
-                                                        </div>
+                                    )}
+                                    <div className='col-12 col-md-6 col-lg-3'>
+                                        {orderItem.slice(1).map((arrayData, idx) => (
+                                            <div key={idx} className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
+                                                {/* <img src={arrayData.img} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} /> */}
+                                                <div className="card-body">
+                                                    <h5 className="card-title">{arrayData.name}</h5>
+                                                    <div className='container w-100 p-0' style={{ height: "38px" }}>
+                                                        <span className='m-1'>{arrayData.qty}</span>
+                                                        <span className='m-1'>{arrayData.size}</span>
+                                                        <span className='m-1'>{orderItem[0].order_date}</span>
+                                                        <div className='d-inline ms-2 h-100 w-20 fs-5'>₹{arrayData.price}/-</div>
                                                     </div>
                                                 </div>
-                                            ))}
-                                        </div>
+                                            </div>
+                                        ))}
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                            ))
                         ))
                     ) : (
-                        <div>No orders found</div>
+                        <div className='fs-3 fw-bold text-center'>No orders found</div>
                     )}
                 </div>
             </div>

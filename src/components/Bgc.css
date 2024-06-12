@@ -1,6 +1,18 @@
-/* #login{
-    background-image:url('https://st4.depositphotos.com/3664757/27559/i/450/depositphotos_275596086-stock-photo-ingredients-making-traditional-italian-pesto.jpg');
+#login {
+    background-image: url('https://st4.depositphotos.com/3664757/27559/i/450/depositphotos_275596086-stock-photo-ingredients-making-traditional-italian-pesto.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-} */
-
+    background-position: center;
+    height: 100vh; /* Full height of viewport */
+    width: 100vw;  /* Full width of viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Fixes the div in place */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Places the background behind other content */
+}
+.thick-hr {
+    border-top: 5px solid rgb(251, 251, 251); /* Adjust the thickness and color as needed */
+}

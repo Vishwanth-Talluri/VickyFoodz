@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import '../components/Bgc.css'
 
 export default function Signup() {
     const[credentials,setCredentials]=useState({username:'',email:'',password:'',location:''})
@@ -44,7 +45,10 @@ export default function Signup() {
     }
 
     return (
-        <div className='container w-50 mt-5'>
+        <div id='login'>
+        <div className='container w-50 mt-5 text-white'>
+            <div className='fs-2 fw-bold'>Register</div>
+            <hr className='thick-hr '/>
             <form onSubmit={handleSubmit}>
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
@@ -68,8 +72,9 @@ export default function Signup() {
                 </div>
 
                 <button type="submit" class="btn btn-success mr-3">Submit</button>
-                <Link to='/login' className='m-3 btn btn-outline-primary'>Already a user?</Link>
+                <Link to='/login' className='m-3 btn btn-primary'>Already a user?</Link>
             </form>
+        </div>
         </div>
     )
 }
