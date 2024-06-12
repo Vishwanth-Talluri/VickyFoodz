@@ -16,3 +16,6 @@
 .thick-hr {
     border-top: 5px solid rgb(251, 251, 251); /* Adjust the thickness and color as needed */
 }
+.bg-opacity {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+}
