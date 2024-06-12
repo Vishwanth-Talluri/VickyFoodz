@@ -1,0 +1,29 @@
+GET http://localhost:4000/foodItems-api/food-items-list
+
+###
+POST http://localhost:4000/users/signup
+Content-Type: application/json
+
+{
+    "username":"chinnu",
+    "location":"hyderabad",
+    "email":"chinnu@gmail.com",
+    "password":"12345"
+}
+
+###
+POST http://localhost:4000/users/login
+Content-Type: application/json
+
+{
+    "username":"chinnu",
+    "password":"12345"
+}
+
+###
+POST http://localhost:4000/orders/my-orders
+Content-Type: application/json
+
+{
+    "email":"chinnu@gmail.com"
+}
